@@ -2,37 +2,32 @@ def swap_min_max(matrix):
     n = len(matrix)
     m = len(matrix[0])
 
-    for j in range(m):
+    for b in range(m):
         min_row = 0
         max_row = 0
 
-        for i in range(n):
-            if matrix[i][j] < matrix[min_row][j]:
-                min_row = i
-            if matrix[i][j] > matrix[max_row][j]:
-                max_row = i
+        for a in range(n):
+            if matrix[a][b] < matrix[min_row][b]:
+                min_row = a
+            if matrix[a][b] > matrix[max_row][b]:
+                max_row = a
 
-        matrix[min_row][j], matrix[max_row][j] = matrix[max_row][j], matrix[min_row][j]
+        matrix[min_row][b], matrix[max_row][b] = matrix[max_row][b], matrix[min_row][b]
 
 
-# основна програма
+#основна програма
 
 n = int(input("Введіть кількість рядків: "))
 m = int(input("Введіть кількість стовпців: "))
 
 matrix = []
-
-print("Введіть елементи матриці (по", m, "чисел у кожному рядку):")
-for i in range(n):
-    row = list(map(int, input(f"Рядок {i + 1}: ").split()))
-    matrix.append(row)
-
-print("\nПочатковий масив:")
-for row in matrix:
-    print(*row)
+for x in range(n):
+    matrix.append(list(map(int, input(f"Рядок {x + 1}: ").split())))
 
 swap_min_max(matrix)
 
-print("\nМасив після перестановки мінімального та максимального елементів у кожному стовпці:")
+print("\nМасив після перестановки:")
 for row in matrix:
-    print(*row) 
+    print(*row)
+
+
